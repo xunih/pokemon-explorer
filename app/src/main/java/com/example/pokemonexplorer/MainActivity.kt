@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
         plusBtn.setOnClickListener {
             number += 1;
             numberString = number.toString();
-            println(numberString)
             presenter?.apiCall(numberString!!)
             img_url =
                 "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$numberString.png"
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
             if (number !== 1) {
                 number -= 1;
                 numberString = number.toString();
-                println(numberString)
                 presenter?.apiCall(numberString!!)
                 img_url =
                     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$numberString.png"

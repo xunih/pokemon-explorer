@@ -9,7 +9,6 @@ class PokemonPresenter(pokemonview: PokemonInterface.PokemonView) :
     private var model: PokemonInterface.PokemonModel = PokemonRepos()
 
     override fun apiCall(id: String) {
-        println("inside apicall")
         model?.getPokemonNameById(id, this)
     }
 

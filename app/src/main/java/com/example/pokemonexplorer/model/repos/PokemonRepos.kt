@@ -22,7 +22,6 @@ class PokemonRepos : PokemonInterface.PokemonModel {
         presenter: PokemonInterface.PokemonPresenter
     ) {
         val call = apiclient?.getPokemonName(id)
-        println(call)
         call?.enqueue(object : Callback<Results> {
             override fun onFailure(call: Call<Results>, t: Throwable) {
                 Log.d("error", t.toString())
@@ -32,17 +31,10 @@ class PokemonRepos : PokemonInterface.PokemonModel {
                 call: Call<Results>,
                 response: Response<Results>
             ) {
-                println("inside success 4")
-                println(response)
                 if (response.isSuccessful) {
-                    println("inside success 1")
                     var results = response.body()?.name
-                    println("inside success 2")
                     if (results != null) {
-                        println("inside success 3")
-                        println(results)
                         pokeName = results
-                        println(pokeName)
                     }
                     presenter.UIAutoUpdate()
                 }
