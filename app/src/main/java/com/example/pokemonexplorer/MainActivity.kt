@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter = PokemonPresenter(this)
-        val textView2 = findViewById(R.id.textView2) as TextView
+        val textView2 = findViewById<TextView>(R.id.textView2)
         textView2.text = numberString
         presenter?.apiCall(numberString!!)
-        val plusBtn = findViewById(R.id.plusBtn) as Button
+        val plusBtn = findViewById<Button>(R.id.plusBtn)
         plusBtn.setOnClickListener {
             number += 1;
             numberString = number.toString();
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
     override fun updateViewData() {
         val textView1 = findViewById<TextView>(R.id.textView1)
         textView1.text = numberString + " " + presenter?.showPokemonName()
-        val textView2 = findViewById(R.id.textView2) as TextView
+        val textView2 = findViewById<TextView>(R.id.textView2)
         textView2.text = numberString
     }
 }
