@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
             println(numberString)
             presenter?.apiCall(numberString!!)
         }
-        val minusBtn = findViewById(R.id.minusBtn) as Button
+        val minusBtn = findViewById<Button>(R.id.minusBtn)
         minusBtn.setOnClickListener {
             if (number !== 1) {
                 number -= 1;
@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
     }
 
     override fun updateViewData() {
-        val textView1 = findViewById(R.id.textView1) as TextView
-        textView1.text = presenter?.showPokemonName()
+        val textView1 = findViewById<TextView>(R.id.textView1)
+        textView1.text = numberString + " " + presenter?.showPokemonName()
         val textView2 = findViewById(R.id.textView2) as TextView
         textView2.text = numberString
     }
