@@ -9,11 +9,11 @@ class PokemonPresenter(pokemonview: PokemonInterface.PokemonView) :
     private var model: PokemonInterface.PokemonModel = PokemonRepos()
 
     override fun apiCall(id: String) {
-        model?.getPokemonNameById(id, this)
+        model?.getPokemonById(id, this)
     }
 
-    override fun showPokemonName(): String {
-        return model.getPokemonName()
+    override fun showPokemonDetails(): Pair<String, String> {
+        return model.getPokemonDetails()
     }
 
     override fun UIAutoUpdate() {

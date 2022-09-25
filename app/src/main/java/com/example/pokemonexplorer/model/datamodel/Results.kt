@@ -14,5 +14,5 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 data class Results (
 	@SerializedName("name") val name : String,
-	@SerializedName("url") val url : String
+	@SerializedName("id") val id : String
 )

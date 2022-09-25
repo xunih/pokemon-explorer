@@ -12,16 +12,17 @@ import retrofit2.Response
 class PokemonRepos : PokemonInterface.PokemonModel {
     private var pokeName = "test"
     private var apiclient: APIInterface? = null
+    private var pokemonId = "1"
 
     init {
         apiclient = PokemonAPI.client.create(APIInterface::class.java)
     }
 
-    override fun getPokemonNameById(
+    override fun getPokemonById(
         id: String,
         presenter: PokemonInterface.PokemonPresenter
     ) {
-        val call = apiclient?.getPokemonName(id)
+        val call = apiclient?.getPokemonDetails(id)
         call?.enqueue(object : Callback<Results> {
             override fun onFailure(call: Call<Results>, t: Throwable) {
                 Log.d("error", t.toString())
@@ -32,9 +33,11 @@ class PokemonRepos : PokemonInterface.PokemonModel {
                 response: Response<Results>
             ) {
                 if (response.isSuccessful) {
-                    var results = response.body()?.name
-                    if (results != null) {
-                        pokeName = results
+                    var resultName = response.body()?.name
+                    var resultId = response.body()?.id
+                    if (resultName != null && resultId != null) {
+                        pokeName = resultName
+                        pokemonId = resultId
                     }
                     presenter.UIAutoUpdate()
                 }
@@ -42,8 +45,11 @@ class PokemonRepos : PokemonInterface.PokemonModel {
         })
     }
 
-    override fun getPokemonName(): String {
-        return pokeName;
+    override fun getPokemonDetails(): Pair<String, String> {
+        println("hey")
+        println(Pair(pokeName, pokemonId).first)
+        println(Pair(pokeName, pokemonId).second)
+        return Pair(pokeName, pokemonId);
     }
 
 }

@@ -2,12 +2,12 @@ package com.example.pokemonexplorer.interfaces
 
 interface PokemonInterface {
     interface PokemonModel {
-        fun getPokemonNameById(
+        fun getPokemonById(
             id: String,
             presenter: PokemonPresenter
         )
 
-        fun getPokemonName(): String
+        fun getPokemonDetails(): Pair<String, String>
     }
 
     interface PokemonView {
@@ -16,7 +16,7 @@ interface PokemonInterface {
 
     interface PokemonPresenter {
         fun apiCall(id: String)
-        fun showPokemonName(): String
+        fun showPokemonDetails(): Pair<String, String>
         fun UIAutoUpdate()
     }
 }
