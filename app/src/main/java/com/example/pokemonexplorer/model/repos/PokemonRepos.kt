@@ -13,6 +13,7 @@ class PokemonRepos : PokemonInterface.PokemonModel {
     private var pokeName = "test"
     private var apiclient: APIInterface? = null
     private var pokemonId = "1"
+    private var minusBtnOn = false;
 
     init {
         apiclient = PokemonAPI.client.create(APIInterface::class.java)
@@ -47,6 +48,14 @@ class PokemonRepos : PokemonInterface.PokemonModel {
 
     override fun getPokemonDetails(): Pair<String, String> {
         return Pair(pokeName, pokemonId);
+    }
+
+    override fun setMinusBtn(on: Boolean, presenter: PokemonInterface.PokemonPresenter) {
+        minusBtnOn = on;
+    }
+
+    override fun getMinusBtn(): Boolean {
+        return minusBtnOn;
     }
 
 }

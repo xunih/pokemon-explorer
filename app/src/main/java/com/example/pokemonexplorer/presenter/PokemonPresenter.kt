@@ -20,4 +20,12 @@ class PokemonPresenter(pokemonview: PokemonInterface.PokemonView) :
         view.updateViewData()
     }
 
+    override fun changeMinusBtn(on: Boolean) {
+        model?.setMinusBtn(on, this)
+    }
+
+    override fun getBtnStatus(): Boolean {
+        return model.getMinusBtn()
+    }
+
 }

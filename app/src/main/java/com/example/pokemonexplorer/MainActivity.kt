@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        presenter?.changeMinusBtn(false)
         presenter = PokemonPresenter(this)
         val textView2 = findViewById<TextView>(R.id.textView2)
         textView2.text = numberString
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
         val plusBtn = findViewById<Button>(R.id.plusBtn)
         plusBtn.setOnClickListener {
             number += 1;
+            presenter?.changeMinusBtn(true)
             numberString = number.toString();
             presenter?.apiCall(numberString!!)
         }
@@ -34,10 +36,18 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
                 numberString = number.toString();
                 presenter?.apiCall(numberString!!)
             }
+            if (number == 1){
+                presenter?.changeMinusBtn(false)
+            }
         }
     }
 
     override fun updateViewData() {
+        val minusBtn = findViewById<Button>(R.id.minusBtn)
+        var minusBtnStatus = presenter?.getBtnStatus()
+        if (minusBtnStatus != null) {
+            minusBtn.isEnabled = minusBtnStatus
+        }
         val textView1 = findViewById<TextView>(R.id.textView1)
         textView1.text =
             (presenter?.showPokemonDetails()?.second) + " " + (presenter?.showPokemonDetails()?.first)
