@@ -11,53 +11,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textAlignment="center"
+        android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView1"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@+id/textView1"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
-
-    <Button
-        android:id="@+id/minusBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/cardview_shadow_end_color"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintVertical_bias="0.206" />
 
     <Button
         android:id="@+id/plusBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="272dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:backgroundTint="@color/cardview_shadow_end_color"
         android:text="+"
         android:textAlignment="center"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344" />
 
     <EditText
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="3dp"
         android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/plusBtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/minusBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView1"
+        app:layout_constraintEnd_toEndOf="@+id/textView1"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="@+id/textView1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.316" />
+
+    <Button
+        android:id="@+id/minusBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/textView1"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
