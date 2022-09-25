@@ -19,6 +19,8 @@ interface PokemonInterface {
 
     interface PokemonView {
         fun updateViewData()
+        fun switchToNoDataView()
+        fun switchBack()
     }
 
     interface PokemonPresenter {
@@ -27,5 +29,7 @@ interface PokemonInterface {
         fun UIAutoUpdate()
         fun changeMinusBtn(on: Boolean)
         fun getBtnStatus(): Boolean
+        fun changeView()
+        fun changeViewBack()
     }
 }

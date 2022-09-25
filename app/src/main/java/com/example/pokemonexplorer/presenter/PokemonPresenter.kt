@@ -28,4 +28,12 @@ class PokemonPresenter(pokemonview: PokemonInterface.PokemonView) :
         return model.getMinusBtn()
     }
 
+    override fun changeView() {
+        view.switchToNoDataView()
+    }
+
+    override fun changeViewBack() {
+        view.switchBack()
+    }
+
 }

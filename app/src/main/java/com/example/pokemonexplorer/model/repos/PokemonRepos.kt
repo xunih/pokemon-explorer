@@ -1,7 +1,9 @@
 package com.example.pokemonexplorer.model.repos
 
 import Results
+import android.os.Handler
 import android.util.Log
+import com.example.pokemonexplorer.MainActivity
 import  retrofit2.Callback
 import com.example.pokemonexplorer.interfaces.PokemonInterface
 import com.example.pokemonexplorer.model.api.APIInterface
@@ -23,6 +25,7 @@ class PokemonRepos : PokemonInterface.PokemonModel {
         id: String,
         presenter: PokemonInterface.PokemonPresenter
     ) {
+        presenter.changeView()
         val call = apiclient?.getPokemonDetails(id)
         call?.enqueue(object : Callback<Results> {
             override fun onFailure(call: Call<Results>, t: Throwable) {
@@ -34,6 +37,7 @@ class PokemonRepos : PokemonInterface.PokemonModel {
                 response: Response<Results>
             ) {
                 if (response.isSuccessful) {
+                    presenter.changeViewBack()
                     var resultName = response.body()?.name
                     var resultId = response.body()?.id
                     if (resultName != null && resultId != null) {
@@ -41,7 +45,9 @@ class PokemonRepos : PokemonInterface.PokemonModel {
                         pokemonId = resultId
                     }
                     presenter.UIAutoUpdate()
+
                 }
+
             }
         })
     }

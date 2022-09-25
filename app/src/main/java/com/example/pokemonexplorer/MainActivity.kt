@@ -3,9 +3,11 @@ package com.example.pokemonexplorer
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
@@ -92,5 +94,14 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
         img_url =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + presenter?.showPokemonDetails()?.second + ".png"
         Picasso.get().load(img_url).into(imageView)
+    }
+
+    override fun switchToNoDataView() {
+        findViewById<ProgressBar>(R.id.progressBar).visibility = View.VISIBLE
+
+    }
+
+    override fun switchBack() {
+        findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
     }
 }
