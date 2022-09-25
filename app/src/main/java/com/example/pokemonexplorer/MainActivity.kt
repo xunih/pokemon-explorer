@@ -27,20 +27,20 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
         presenter = PokemonPresenter(this)
         val textView2 = findViewById<EditText>(R.id.textView2)
         textView2.setText(numberString)
-        presenter?.apiCall(numberString!!)
+        presenter?.apiCall(numberString)
         val plusBtn = findViewById<Button>(R.id.plusBtn)
         plusBtn.setOnClickListener {
             number += 1;
             presenter?.changeMinusBtn(true)
             numberString = number.toString();
-            presenter?.apiCall(numberString!!)
+            presenter?.apiCall(numberString)
         }
         val minusBtn = findViewById<Button>(R.id.minusBtn)
         minusBtn.setOnClickListener {
-            if (number !== 1) {
+            if (number != 1) {
                 number -= 1;
                 numberString = number.toString();
-                presenter?.apiCall(numberString!!)
+                presenter?.apiCall(numberString)
             }
             if (number == 1) {
                 presenter?.changeMinusBtn(false)
@@ -66,8 +66,8 @@ class MainActivity : AppCompatActivity(), PokemonInterface.PokemonView {
                     } else {
                         numberString = text;
                         number = text.toInt()
-                        presenter?.apiCall(numberString!!)
-                        if (number !== 1) {
+                        presenter?.apiCall(numberString)
+                        if (number != 1) {
                             presenter?.changeMinusBtn(true)
                         } else {
                             presenter?.changeMinusBtn(false)
