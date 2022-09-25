@@ -46,9 +46,6 @@ class PokemonRepos : PokemonInterface.PokemonModel {
     }
 
     override fun getPokemonDetails(): Pair<String, String> {
-        println("hey")
-        println(Pair(pokeName, pokemonId).first)
-        println(Pair(pokeName, pokemonId).second)
         return Pair(pokeName, pokemonId);
     }
 
